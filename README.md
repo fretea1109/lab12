@@ -21,7 +21,7 @@ Software Engineering, College of Arts, Media and Technology, Chiang Mai Universi
 | Application | URL | Description |
 |-------------|-----|-------------|
 | **Personal Website** | [http://100.48.46.12:8080](http://100.48.46.12:8080) | Personal portfolio site (Nginx) |
-| **Todo Application** | [http://100.48.46.12:8081](http://100.48.46.12:8081) | Open-source todo app (Node.js/Express) |
+| **Todo Application** | [http://100.48.46.12:8082](http://100.48.46.12:8082) | Open-source todo app (Node.js/Express) |
 
 ---
 
@@ -66,7 +66,7 @@ docker compose up -d --build
 | Service | Container Name | Host Port | Base Image |
 |---------|---------------|-----------|------------|
 | `personal-website` | `personal-site` | `8080:80` | nginx:latest |
-| `todo-app` | `todo-app` | `8081:3000` | node:18-alpine |
+| `todo-app` | `todo-app` | `8082:3000` | node:18-alpine |
 
 Both share the `app-network` bridge network.
 
