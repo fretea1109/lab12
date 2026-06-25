@@ -1,0 +1,34 @@
+services:
+  # ==========================================================
+  # 1. Personal Website (Nginx)
+  # ==========================================================
+  personal-website:
+    build:
+      context: ./personal-website
+      dockerfile: Dockerfile
+    container_name: personal-site
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    networks:
+      - app-network
+    depends_on:
+      - todo-app
+
+  # ==========================================================
+  # 2. Todo Application (Node.js + Express — Open Source)
+  # ==========================================================
+  todo-app:
+    build:
+      context: ./todo-app
+      dockerfile: Dockerfile
+    container_name: todo-app
+    ports:
+      - "8081:3000"
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

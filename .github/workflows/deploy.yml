@@ -1,0 +1,46 @@
+# ============================================================
+# GitHub Actions Workflow — CI/CD Pipeline
+# Auto-deploys both apps to the WAS server via SSH + Docker Compose
+# ============================================================
+name: Deploy Applications
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Server via Docker Compose
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT || '22' }}
+          script: |
+            echo "=== Pulling latest code ==="
+            mkdir -p ~/lab12 && cd ~/lab12
+            git pull origin main 2>/dev/null || git clone https://github.com/fretea1109/lab12.git .
+
+            echo "=== Stopping old containers ==="
+            docker compose down || true
+
+            echo "=== Building & starting applications ==="
+            docker compose up -d --build
+
+            echo "=== Cleaning up ==="
+            docker system prune -f
+
+            echo "=== Deployment complete ==="
+            docker compose ps
