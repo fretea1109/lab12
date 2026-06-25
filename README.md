@@ -12,7 +12,8 @@ Software Engineering, College of Arts, Media and Technology, Chiang Mai Universi
 
 | Name | Student ID | Image | Contribution |
 |------|------------|-------|-------------|
-| 蔡君儒 | 20242190 | <img src="personal-website/profile.jpg" width="120" alt="profile" /> | 100% |
+| Wang Liangxu | 20242189 | <img src="personal-website/profile.jpg" width="120" alt="profile" /> | 50% |
+| Cai Junru | 20242189 | <img src="personal-website/profile.jpg" width="120" alt="profile" /> | 50% |
 
 ---
 
