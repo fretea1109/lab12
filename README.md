@@ -12,7 +12,7 @@ Software Engineering, College of Arts, Media and Technology, Chiang Mai Universi
 
 | Name | Student ID | Image | Contribution |
 |------|------------|-------|-------------|
-| [Your Full Name] | [Your Student ID] | <img src="personal-website/profile.jpg" width="120" alt="profile" /> | 100% |
+| 蔡君儒 | 20242190 | <img src="personal-website/profile.jpg" width="120" alt="profile" /> | 100% |
 
 ---
 
